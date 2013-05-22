@@ -1,4 +1,4 @@
-Chapter3SampleApp::Application.routes.draw do
+Sampleapp::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
