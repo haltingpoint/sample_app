@@ -13,7 +13,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
   
-  before_save { |user| user.email = email.downcase }
+  #this is the first way the Rails Tutorial gives to normalize the email addresses in the database
+  #before_save { |user| user.email = email.downcase }
+  #and this is the streamlined way it says can replace it
+  before_save { email.downcase! }
   
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
